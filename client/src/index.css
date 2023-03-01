@@ -9,11 +9,57 @@ body {
 
 header {
 	background: #20c573;
-	padding: 1rem;
+	padding: 1rem 1.5rem;
 }
 
 header a {
 	color: #ffffff;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+.margin {
+	margin: 1.5rem 1.5rem;
+	/* background: rgb(238, 139, 139); */
+}
+
+.containner {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	/* background: rgb(69, 216, 69); */
+}
+
+.image-containner {
+	/* border: 3px solid rgb(221, 217, 217); */
+	border-radius: 20px;
+	background: whitesmoke;
+	margin-bottom: 1.5rem;
+	padding: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transition: all cubic-bezier(0, 2.55, 0.75, 0.64) 1000ms;
+}
+
+.p-name {
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: #11c76c;
+}
+
+.p-price {
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+
+.image-containner:hover {
+	scale: 1.05;
+}
+
+.img-wd {
+	height: 275px;
+	width: 275px;
+	object-fit: cover;
+	border-radius: 20px 20px 0 0;
 }
