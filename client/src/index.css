@@ -14,16 +14,21 @@ header {
 
 header a {
 	color: #ffffff;
+	font-size: 1.2rem;
 	font-weight: bold;
 	text-decoration: none;
 }
 
+a {
+	text-decoration: none;
+}
+
 .margin {
-	margin: 1.5rem 1.5rem;
+	padding: 1.5rem 1.2rem;
 	/* background: rgb(238, 139, 139); */
 }
 
-.containner {
+.products {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -31,35 +36,61 @@ header a {
 	/* background: rgb(69, 216, 69); */
 }
 
-.image-containner {
+.product {
 	/* border: 3px solid rgb(221, 217, 217); */
 	border-radius: 20px;
-	background: whitesmoke;
-	margin-bottom: 1.5rem;
+	background: rgba(228, 226, 226, 0.705);
+	margin: 1.5rem 1rem;
 	padding: 10px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
 		0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	transition: all cubic-bezier(0, 2.55, 0.75, 0.64) 1000ms;
+	transition: all cubic-bezier(0, 1.95, 0.75, 0.64) 200ms;
 }
 
 .p-name {
 	font-size: 1.1rem;
 	font-weight: bold;
-	color: #11c76c;
+	color: #02552b;
 }
 
 .p-price {
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font-weight: bold;
+	padding-right: 20px;
 }
 
-.image-containner:hover {
+.product:hover {
 	scale: 1.05;
+	background: rgba(219, 217, 217, 0.959);
 }
 
-.img-wd {
-	height: 275px;
+.product img {
+	background: white;
 	width: 275px;
+	height: 365px;
 	object-fit: cover;
 	border-radius: 20px 20px 0 0;
+}
+
+.logo {
+	height: 1.5em;
+}
+
+.product-info {
+	position: relative;
+}
+
+button {
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	transition: all ease-in 200ms;
+	position: absolute;
+	bottom: -10px;
+	right: 10px;
+}
+
+button:hover {
+	background: #02552b;
+	border: none;
+	color: #fff;
 }
