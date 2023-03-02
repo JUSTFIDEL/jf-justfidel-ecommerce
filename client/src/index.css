@@ -5,11 +5,15 @@ body {
 		'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-image: url('../public/images/black-linen.png');
 }
 
 header {
 	background: #20c573;
 	padding: 1rem 1.5rem;
+	/* background-color: #008c41; */
+	background-image: url('../public/images/black-felt.png');
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 header a {
@@ -17,6 +21,10 @@ header a {
 	font-size: 1.2rem;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+main {
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 a {
