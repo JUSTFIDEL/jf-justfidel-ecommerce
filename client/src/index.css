@@ -6,12 +6,12 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-image: url('../public/images/black-linen.png');
+	scroll-behavior: smooth;
 }
 
 header {
 	background: #20c573;
-	padding: 1rem 1.5rem;
-	/* background-color: #008c41; */
+	padding: 1rem 3rem;
 	background-image: url('../public/images/black-felt.png');
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -36,8 +36,7 @@ h1 {
 }
 
 .margin {
-	padding: 1.5rem 1.2rem;
-	/* background: rgb(238, 139, 139); */
+	padding: 3rem 3rem;
 }
 
 .products {
@@ -94,14 +93,23 @@ h1 {
 button {
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
-	transition: all ease-in 200ms;
+	background-color: rgb(9, 117, 32);
+	color: whitesmoke;
+	transition: all ease-in-out 400ms;
 	position: absolute;
 	bottom: -10px;
 	right: 10px;
+	outline: none;
+	border: none;
+	font-weight: bold;
 }
 
 button:hover {
-	background: #02552b;
+	background: rgb(140, 223, 45);
 	border: none;
-	color: #fff;
+	color: rgb(9, 117, 32);
+}
+
+.rating span {
+	color: rgb(9, 117, 32);
 }
