@@ -5,6 +5,7 @@ body {
 		'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background: whitesmoke;
 	background-image: url('../public/images/black-linen.png');
 	scroll-behavior: smooth;
 }
@@ -14,6 +15,11 @@ header {
 	padding: 1rem 3rem;
 	background-image: url('../public/images/black-felt.png');
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 99;
 }
 
 header a {
@@ -25,6 +31,8 @@ header a {
 
 main {
 	background-color: rgba(255, 255, 255, 0.8);
+
+	margin-top: 3rem;
 }
 
 a {
@@ -77,7 +85,7 @@ h1 {
 .product img {
 	background: white;
 	width: 235px;
-	height: 285px;
+	height: 255px;
 	object-fit: cover;
 	border-radius: 20px 20px 0 0;
 }
@@ -90,7 +98,7 @@ h1 {
 	position: relative;
 }
 
-button {
+.pro-but {
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
 	background-color: rgb(9, 117, 32);
@@ -104,12 +112,81 @@ button {
 	font-weight: bold;
 }
 
-button:hover {
+.pro-but-1 {
+	padding: 0.5rem 2rem;
+	border-radius: 4px;
+	background-color: rgb(9, 117, 32);
+	color: whitesmoke;
+	transition: all ease-in-out 400ms;
+	outline: none;
+	border: none;
+	font-weight: bold;
+}
+
+.pro-but:hover {
 	background: rgb(140, 223, 45);
 	border: none;
-	color: rgb(9, 117, 32);
+	color: rgb(4, 97, 24);
 }
 
 .rating span {
 	color: rgb(9, 117, 32);
+}
+
+footer {
+	background: rgb(25, 189, 61);
+	padding: 0.5rem;
+	color: whitesmoke;
+	text-align: center;
+	/* position: sticky;
+	bottom: 0;
+	left: 0;
+	right: 0; */
+	/* height: 40rem; */
+	z-index: 100;
+}
+
+.prod-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin: 0.5rem 3rem;
+	flex-wrap: wrap;
+}
+
+.image-lg {
+	width: 130%;
+}
+
+hr {
+	/* border-color: green; */
+	color: rgb(212, 212, 212);
+	height: 0.5px;
+}
+
+.prod-prix {
+	width: 200px;
+	border: 1px solid rgb(212, 212, 212);
+	border-radius: 10px;
+	padding: 1.5rem;
+	line-height: 2;
+	margin-top: 1.5rem;
+}
+
+.prod-details {
+	padding-top: 1.5rem;
+}
+
+.av-status {
+	background: rgb(4, 51, 182);
+	color: white;
+	padding: 2px 6px;
+	border-radius: 4px;
+}
+
+.uav-status {
+	background: rgb(223, 5, 16);
+	color: white;
+	padding: 2px 6px;
+	border-radius: 4px;
 }

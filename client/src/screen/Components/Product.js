@@ -12,9 +12,9 @@ function Product(props) {
 				<Link to={`/product/${product.slug}`}>
 					<p className="p-name">{product.name}</p>
 				</Link>
-				<Rating rating={product.rating} numReview={product.numReview} />
+				<Rating rating={product.rating} numReviews={product.numReviews} />
 				<p className="p-price">N{product.price}</p>
-				<button>Add to cart</button>
+				<button className="pro-but">Add to cart</button>
 			</div>
 		</div>
 	)
