@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { useEffect, useReducer } from 'react'
+import { Helmet } from 'react-helmet-async'
 import logger from 'use-reducer-logger'
+import LoadingBox from './Components/LoadingBox'
+import MessageBox from './Components/MessageBox'
 import Product from './Components/Product'
 
 const reducer = (state, action) => {
@@ -35,21 +38,22 @@ function HomeScreen() {
 			} catch (err) {
 				dispatch({ type: 'FETCH_FAIL', payload: err.message })
 			}
-
-			// setProducts(result.data)
 		}
 		fetchData()
 	}, [])
 	return (
 		<div>
+			<Helmet>
+				<title>JustFidel</title>
+			</Helmet>
 			<h1>Featured Products</h1>
 			<div className="products">
 				{loading ? (
 					<div>
-						<h1>Loading...</h1>
+						<LoadingBox />
 					</div>
 				) : error ? (
-					<div>{error}</div>
+					<MessageBox variant="danger">{error}</MessageBox>
 				) : (
 					products.map(product => <Product product={product} />)
 				)}

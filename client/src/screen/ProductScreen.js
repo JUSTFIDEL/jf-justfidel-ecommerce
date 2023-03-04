@@ -1,6 +1,11 @@
 import axios from 'axios'
-import { useEffect, useReducer } from 'react'
+import { useContext, useEffect, useReducer } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useParams } from 'react-router-dom'
+import { Store } from '../Store'
+import { getError } from '../utils'
+import LoadingBox from './Components/LoadingBox'
+import MessageBox from './Components/MessageBox'
 import Rating from './Components/Rating'
 
 const reducer = (state, action) => {
@@ -33,22 +38,33 @@ function ProductScreen() {
 				const result = await axios.get(`/api/products/slug/${slug}`)
 				dispatch({ type: 'FETCH_SUCCESS', payload: result.data })
 			} catch (err) {
-				dispatch({ type: 'FETCH_FAIL', payload: err.message })
+				dispatch({ type: 'FETCH_FAIL', payload: getError(err) })
 			}
 		}
 		fetchData()
 	}, [slug])
 
+	const { state, dispatch: ctxDispatch } = useContext(Store)
+	const addToCartHandler = () => {
+		ctxDispatch({
+			type: 'CART_ADD_ITEM',
+			payload: { ...product, quantity: 1 },
+		})
+	}
+
 	return loading ? (
-		<div>Loading...</div>
+		<LoadingBox />
 	) : error ? (
-		<div>{error}</div>
+		<MessageBox variant="danger">{error}</MessageBox>
 	) : (
 		<div className="prod-flex">
 			<div>
 				<img alt={product.name} src={product.image} className="image-lg" />
 			</div>
 			<div className="prod-details">
+				<Helmet>
+					<title>{product.name}</title>
+				</Helmet>
 				<h1>{product.name}</h1>
 				<Rating rating={product.rating} numReviews={product.numReviews} />
 				<hr />
@@ -57,22 +73,24 @@ function ProductScreen() {
 				<h2>Description:</h2>
 				<p>{product.description}</p>
 			</div>
-			<div className="prod-prix">
+			<div className="prod-price">
 				<p>
-					<strong>Price:</strong> N{product.price}
+					<strong>Price: </strong> N{product.price}
 				</p>
 				<hr />
 				<p>
-					<strong>Status:</strong>{' '}
+					<strong>Status: </strong>
 					{product.countInStock > 0 ? (
-						<span className="av-status">In Stock</span>
+						<span className="av-status"> In Stock</span>
 					) : (
-						<span className="uav-status">Unavailable</span>
+						<span className="uav-status"> Unavailable</span>
 					)}
 				</p>
 				<hr />
 				{product.countInStock > 0 && (
-					<button className="pro-but-1">Add to Cart</button>
+					<button onClick={addToCartHandler} className="pro-but-1">
+						Add to Cart
+					</button>
 				)}
 			</div>
 		</div>

@@ -8,6 +8,20 @@ body {
 	background: whitesmoke;
 	background-image: url('../public/images/black-linen.png');
 	scroll-behavior: smooth;
+	height: 100vh;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-weight: bold;
+}
+
+main {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 6rem 3rem 2rem;
 }
 
 header {
@@ -29,22 +43,13 @@ header a {
 	text-decoration: none;
 }
 
-main {
-	background-color: rgba(255, 255, 255, 0.8);
-
-	margin-top: 3rem;
-}
-
-a {
-	text-decoration: none;
-}
-
-h1 {
-	margin-top: 0;
-}
-
-.margin {
-	padding: 3rem 3rem;
+.prod-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin: 0.5rem 3rem;
+	flex-wrap: wrap;
+	height: 100vh;
 }
 
 .products {
@@ -57,24 +62,27 @@ h1 {
 
 .product {
 	/* border: 3px solid rgb(221, 217, 217); */
+	display: flex;
+	flex-direction: column;
 	border-radius: 20px;
 	background: rgba(228, 226, 226, 0.705);
-	margin: 1.25rem 0.5rem;
-	padding: 10px;
+	margin: 1.25rem auto;
+	padding: 12px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	transition: all cubic-bezier(0, 2.95, 0.75, 0.64) 400ms;
 }
 
 .p-name {
-	font-size: 1.1rem;
+	font-size: 1rem;
 	font-weight: bold;
 	color: #02552b;
+	padding-top: 10px;
 }
 
 .p-price {
-	font-size: 1rem;
+	font-size: 0.8rem;
 	font-weight: bold;
-	padding-right: 20px;
+	padding-top: 10px;
 }
 
 .product:hover {
@@ -105,15 +113,15 @@ h1 {
 	color: whitesmoke;
 	transition: all ease-in-out 400ms;
 	position: absolute;
-	bottom: -10px;
-	right: 10px;
+	bottom: 2px;
+	right: 0px;
 	outline: none;
 	border: none;
 	font-weight: bold;
 }
 
 .pro-but-1 {
-	padding: 0.5rem 2rem;
+	padding: 0.3rem 1.5rem;
 	border-radius: 4px;
 	background-color: rgb(9, 117, 32);
 	color: whitesmoke;
@@ -121,12 +129,18 @@ h1 {
 	outline: none;
 	border: none;
 	font-weight: bold;
+	margin: 10px auto;
+	min-width: 100%;
 }
 
-.pro-but:hover {
+.pro-but:hover,
+.pro-but-1:hover {
 	background: rgb(140, 223, 45);
 	border: none;
 	color: rgb(4, 97, 24);
+}
+.rating {
+	margin-top: -10px;
 }
 
 .rating span {
@@ -146,34 +160,31 @@ footer {
 	z-index: 100;
 }
 
-.prod-flex {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	margin: 0.5rem 3rem;
-	flex-wrap: wrap;
-}
-
 .image-lg {
 	width: 130%;
 }
 
 hr {
 	/* border-color: green; */
-	color: rgb(212, 212, 212);
+	color: rgb(177, 175, 175);
 	height: 0.5px;
 }
 
-.prod-prix {
-	width: 200px;
+.prod-price {
+	min-width: 300px;
 	border: 1px solid rgb(212, 212, 212);
 	border-radius: 10px;
 	padding: 1.5rem;
 	line-height: 2;
-	margin-top: 1.5rem;
+	margin-top: 1.8rem;
 }
 
 .prod-details {
+	padding-top: 1.8rem;
+	padding-left: 1.5rem;
+}
+
+.prod-details .rating {
 	padding-top: 1.5rem;
 }
 
