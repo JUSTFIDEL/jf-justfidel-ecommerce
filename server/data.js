@@ -1,6 +1,7 @@
 const data = {
 	products: [
 		{
+			_id: '1',
 			name: 'Nike XL Shirt',
 			slug: 'nike-xl-shirt',
 			category: 'Shirt',
@@ -13,6 +14,7 @@ const data = {
 			description: 'High Quality Shirt',
 		},
 		{
+			_id: '2',
 			name: 'Nike Slim Shirt',
 			slug: 'nike-slim-shirt',
 			category: 'Shirt',
@@ -26,6 +28,7 @@ const data = {
 		},
 
 		{
+			_id: '3',
 			name: 'Nike Large Shirt',
 			slug: 'nike-lg-shirt',
 			category: 'Shirt',
@@ -39,6 +42,7 @@ const data = {
 		},
 
 		{
+			_id: '4',
 			name: 'Nike XL Shirt',
 			slug: 'nike-xl1-shirt',
 			category: 'Shirt',
@@ -52,6 +56,7 @@ const data = {
 		},
 
 		{
+			_id: '5',
 			name: 'Nike XL Pant',
 			slug: 'nike-xl-pant',
 			category: 'Pant',
@@ -65,6 +70,7 @@ const data = {
 		},
 
 		{
+			_id: '6',
 			name: 'Nike L Pant',
 			slug: 'nike-l-pant',
 			category: 'Pant',
@@ -78,6 +84,7 @@ const data = {
 		},
 
 		{
+			_id: '7',
 			name: 'Nike SM Pant',
 			slug: 'nike-sm-pant',
 			category: 'Pant',
@@ -90,6 +97,7 @@ const data = {
 			description: 'High Quality Pant',
 		},
 		{
+			_id: '8',
 			name: 'Nike L Pant',
 			slug: 'nike-ll-pant',
 			category: 'Pant',

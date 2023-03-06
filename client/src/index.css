@@ -43,6 +43,12 @@ header a {
 	text-decoration: none;
 }
 
+.my-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .prod-flex {
 	display: flex;
 	justify-content: space-between;
@@ -100,6 +106,7 @@ header a {
 
 .logo {
 	height: 1.5em;
+	margin-right: 20px;
 }
 
 .product-info {
