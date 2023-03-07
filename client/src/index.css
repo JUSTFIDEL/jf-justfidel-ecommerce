@@ -17,11 +17,13 @@ a {
 
 h1 {
 	font-weight: bold;
+	margin-bottom: 1.2rem;
 }
 
 main {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 6rem 3rem 2rem;
+	min-height: 100svh;
 }
 
 header {
@@ -55,7 +57,22 @@ header a {
 	align-items: flex-start;
 	margin: 0.5rem 3rem;
 	flex-wrap: wrap;
-	height: 100vh;
+	min-height: 100vh;
+}
+
+.prod-flex img {
+	width: 150%;
+}
+
+@media (max-width: 768px) {
+	.prod-flex img {
+		width: 100%;
+	}
+
+	/* .product img {
+		width: 195px;
+		height: 225px;
+	} */
 }
 
 .products {
@@ -140,6 +157,19 @@ header a {
 	min-width: 100%;
 }
 
+.pro-but-0 {
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	background-color: rgba(194, 193, 193, 0.75);
+	color: rgb(135, 135, 135);
+	transition: all ease-in-out 400ms;
+	position: absolute;
+	bottom: 2px;
+	right: 0px;
+	outline: none;
+	border: none;
+}
+
 .pro-but:hover,
 .pro-but-1:hover {
 	background: rgb(140, 223, 45);
@@ -186,6 +216,14 @@ hr {
 	margin-top: 1.8rem;
 }
 
+.cart-price {
+	min-width: 200px;
+	border: 1px solid rgb(212, 212, 212);
+	border-radius: 10px;
+	padding: 1.5rem;
+	line-height: 2;
+}
+
 .prod-details {
 	padding-top: 1.8rem;
 	padding-left: 1.5rem;
@@ -207,4 +245,13 @@ hr {
 	color: white;
 	padding: 2px 6px;
 	border-radius: 4px;
+}
+
+.img-thumbnail {
+	height: 80px;
+}
+
+.small-container {
+	max-width: 450px;
+	margin-top: 3rem;
 }
