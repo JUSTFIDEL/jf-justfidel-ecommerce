@@ -1,7 +1,24 @@
+import bcrypt from 'bcryptjs'
+
 const data = {
+	users: [
+		{
+			name: 'JustFidel',
+			email: 'justfidel2022@yahoo.com',
+			password: bcrypt.hashSync('123321'),
+			isAdmin: true,
+		},
+		{
+			name: 'Talitha',
+			email: 'justfidel@yahoo.com',
+			password: bcrypt.hashSync('123321'),
+			isAdmin: false,
+		},
+	],
+
 	products: [
 		{
-			_id: '1',
+			// _id: '1',
 			name: 'Nike XL Shirt',
 			slug: 'nike-xl-shirt',
 			category: 'Shirt',
@@ -14,7 +31,7 @@ const data = {
 			description: 'High Quality Shirt',
 		},
 		{
-			_id: '2',
+			// _id: '2',
 			name: 'Nike Slim Shirt',
 			slug: 'nike-slim-shirt',
 			category: 'Shirt',
@@ -28,7 +45,7 @@ const data = {
 		},
 
 		{
-			_id: '3',
+			// _id: '3',
 			name: 'Nike Large Shirt',
 			slug: 'nike-lg-shirt',
 			category: 'Shirt',
@@ -42,8 +59,8 @@ const data = {
 		},
 
 		{
-			_id: '4',
-			name: 'Nike XL Shirt',
+			// _id: '4',
+			name: 'Nike XL1 Shirt',
 			slug: 'nike-xl1-shirt',
 			category: 'Shirt',
 			image: '/images/shirt1.svg',
@@ -56,7 +73,7 @@ const data = {
 		},
 
 		{
-			_id: '5',
+			// _id: '5',
 			name: 'Nike XL Pant',
 			slug: 'nike-xl-pant',
 			category: 'Pant',
@@ -70,9 +87,9 @@ const data = {
 		},
 
 		{
-			_id: '6',
-			name: 'Nike L Pant',
-			slug: 'nike-l-pant',
+			// _id: '6',
+			name: 'Nike L1 Pant',
+			slug: 'nike-l1-pant',
 			category: 'Pant',
 			image: '/images/pant2.svg',
 			price: 1400,
@@ -84,7 +101,7 @@ const data = {
 		},
 
 		{
-			_id: '7',
+			// _id: '7',
 			name: 'Nike SM Pant',
 			slug: 'nike-sm-pant',
 			category: 'Pant',
@@ -97,8 +114,8 @@ const data = {
 			description: 'High Quality Pant',
 		},
 		{
-			_id: '8',
-			name: 'Nike L Pant',
+			// _id: '8',
+			name: 'Nike LL Pant',
 			slug: 'nike-ll-pant',
 			category: 'Pant',
 			image: '/images/pant2.svg',

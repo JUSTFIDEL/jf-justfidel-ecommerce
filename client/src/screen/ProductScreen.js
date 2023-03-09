@@ -69,7 +69,7 @@ function ProductScreen() {
 	) : (
 		<div className="prod-flex">
 			<div>
-				<img alt={product.name} src={product.image} className="image-lg" />
+				<img alt={product.name} src={product.image} />
 			</div>
 			<div className="prod-details">
 				<Helmet>

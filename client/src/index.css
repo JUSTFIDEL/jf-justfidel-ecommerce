@@ -61,7 +61,7 @@ header a {
 }
 
 .prod-flex img {
-	width: 150%;
+	width: 120%;
 }
 
 @media (max-width: 768px) {
@@ -69,10 +69,17 @@ header a {
 		width: 100%;
 	}
 
+	.prod-flex {
+		margin: 0.5rem;
+	}
 	/* .product img {
 		width: 195px;
 		height: 225px;
 	} */
+
+	.cart-price {
+		margin-top: 20px;
+	}
 }
 
 .products {
@@ -208,7 +215,7 @@ hr {
 }
 
 .prod-price {
-	min-width: 300px;
+	min-width: 250px;
 	border: 1px solid rgb(212, 212, 212);
 	border-radius: 10px;
 	padding: 1.5rem;
