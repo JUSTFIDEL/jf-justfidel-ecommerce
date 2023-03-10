@@ -1,5 +1,9 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 import Navbar from 'react-bootstrap/Navbar'
 import Badge from 'react-bootstrap/Badge'
 import Footer from './screen/Components/Footer'
@@ -9,14 +13,21 @@ import { useContext } from 'react'
 import { Store } from './Store'
 import CartScreen from './screen/CartScreen'
 import SigninScreen from './screen/SigninScreen'
+import { LinkContainer } from 'react-router-bootstrap'
 
 function App() {
-	const { state } = useContext(Store)
-	const { cart } = state
+	const { state, dispatch: ctxDispatch } = useContext(Store)
+	const { cart, userInfo } = state
+
+	const signOutHandler = () => {
+		ctxDispatch({ type: 'USER_SIGNOUT' })
+		localStorage.removeItem('userInfo')
+	}
 
 	return (
 		<BrowserRouter>
-			<div className="App d-flex flex-column site-container">
+			<div className="d-flex flex-column site-container">
+				<ToastContainer position="bottom-center" limit={1} />
 				<header>
 					<Navbar variant="dark my-nav">
 						<div>
@@ -41,6 +52,33 @@ function App() {
 										</Badge>
 									)}
 								</Link>
+								{userInfo ? (
+									<NavDropdown
+										title={userInfo.name}
+										id="basic-nav-dropdown">
+										<LinkContainer to="/profile">
+											<NavDropdown.Item>
+												User Profile
+											</NavDropdown.Item>
+										</LinkContainer>
+										<LinkContainer to="/orderhistory">
+											<NavDropdown.Item>
+												Order History
+											</NavDropdown.Item>
+										</LinkContainer>
+										<NavDropdown.Divider />
+										<Link
+											className="dropdown-item"
+											to="#signout"
+											onClick={signOutHandler}>
+											Sign Out
+										</Link>
+									</NavDropdown>
+								) : (
+									<Link className="nav-link" to="/signin">
+										Sign In
+									</Link>
+								)}
 							</Nav>
 						</div>
 					</Navbar>

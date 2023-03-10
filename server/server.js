@@ -27,11 +27,10 @@ app.use('/api/products', productRouter)
 app.use('/api/users', userRouter)
 
 app.use((err, req, res, next) => {
-	console.log(res.status(500).send({ message: err.message }))
+	res.status(500).send({ message: err.message })
 })
 
 const port = process.env.PORT || 5000
-
 app.listen(port, () => {
 	console.log(`Server started on http://localhost:${port}`)
 })
