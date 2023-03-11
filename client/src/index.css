@@ -8,16 +8,19 @@ body {
 	background: whitesmoke;
 	background-image: url('../public/images/black-linen.png');
 	scroll-behavior: smooth;
-	height: 100vh;
+	height: 100svh;
 }
 
 a {
 	text-decoration: none;
+	color: rgb(9, 117, 32);
+	font-weight: bold;
 }
 
 h1 {
 	font-weight: bold;
 	margin-bottom: 1.2rem;
+	margin-top: 1.2rem;
 }
 
 main {
@@ -72,13 +75,29 @@ header a {
 	.prod-flex {
 		margin: 0.5rem;
 	}
-	/* .product img {
-		width: 195px;
-		height: 225px;
-	} */
 
 	.cart-price {
 		margin-top: 20px;
+	}
+
+	h1 {
+		font-size: 1.75rem;
+		text-align: center;
+		margin-bottom: 1rem;
+		margin-top: 1rem;
+	}
+
+	.logo {
+		width: 5rem;
+	}
+
+	header {
+		padding: 0.5rem 1rem;
+	}
+
+	.scr-pad {
+		padding: 5rem 1.5rem 2rem;
+		min-height: 100svh;
 	}
 }
 
@@ -135,6 +154,13 @@ header a {
 
 .product-info {
 	position: relative;
+}
+
+.signing-btn {
+	background-color: rgb(9, 117, 32) !important;
+	color: whitesmoke !important;
+	outline: none;
+	border: none;
 }
 
 .pro-but {
@@ -261,4 +287,14 @@ hr {
 .small-container {
 	max-width: 450px;
 	margin-top: 3rem;
+}
+
+.checkout-steps > div {
+	border-bottom: 0.2rem solid #a0a0a0;
+	color: #a0a0a0;
+}
+
+.checkout-steps > div.active {
+	border-bottom: 0.2rem solid #f08000;
+	color: #f08000;
 }

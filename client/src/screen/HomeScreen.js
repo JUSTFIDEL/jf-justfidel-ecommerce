@@ -42,7 +42,7 @@ function HomeScreen() {
 		fetchData()
 	}, [])
 	return (
-		<div>
+		<div className=".scr-pad">
 			<Helmet>
 				<title>JustFidel</title>
 			</Helmet>

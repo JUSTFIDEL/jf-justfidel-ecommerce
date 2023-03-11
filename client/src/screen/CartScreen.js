@@ -39,7 +39,7 @@ function CartScreen() {
 		navigate('/signin?redirect=/shipping')
 	}
 	return (
-		<div>
+		<div className=".scr-pad">
 			<Helmet>
 				<title>Shopping Cart</title>
 			</Helmet>

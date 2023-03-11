@@ -14,6 +14,9 @@ import { Store } from './Store'
 import CartScreen from './screen/CartScreen'
 import SigninScreen from './screen/SigninScreen'
 import { LinkContainer } from 'react-router-bootstrap'
+import ShippingAddressScreen from './screen/ShippingAddressScreen'
+import SignupScreen from './screen/SignupScreen'
+import Container from 'react-bootstrap/Container'
 
 function App() {
 	const { state, dispatch: ctxDispatch } = useContext(Store)
@@ -22,6 +25,7 @@ function App() {
 	const signOutHandler = () => {
 		ctxDispatch({ type: 'USER_SIGNOUT' })
 		localStorage.removeItem('userInfo')
+		localStorage.removeItem('shippingAddress')
 	}
 
 	return (
@@ -30,64 +34,68 @@ function App() {
 				<ToastContainer position="bottom-center" limit={1} />
 				<header>
 					<Navbar variant="dark my-nav">
-						<div>
-							<Link to="/">
-								<img
-									src="../images/logo.svg"
-									className="logo"
-									alt="logo"
-								/>
-							</Link>
-						</div>
-						<div>
-							<Nav className="me-auto">
-								<Link to="/cart" className="nav-link">
-									<strong>Cart</strong>
-									{cart.cartItems.length > 0 && (
-										<Badge pill bg="danger">
-											{cart.cartItems.reduce(
-												(a, c) => a + c.quantity,
-												0,
-											)}
-										</Badge>
-									)}
+						<Container>
+							<div>
+								<Link to="/">
+									<img
+										src="../images/logo.svg"
+										className="logo"
+										alt="logo"
+									/>
 								</Link>
-								{userInfo ? (
-									<NavDropdown
-										title={userInfo.name}
-										id="basic-nav-dropdown">
-										<LinkContainer to="/profile">
-											<NavDropdown.Item>
-												User Profile
-											</NavDropdown.Item>
-										</LinkContainer>
-										<LinkContainer to="/orderhistory">
-											<NavDropdown.Item>
-												Order History
-											</NavDropdown.Item>
-										</LinkContainer>
-										<NavDropdown.Divider />
-										<Link
-											className="dropdown-item"
-											to="#signout"
-											onClick={signOutHandler}>
-											Sign Out
-										</Link>
-									</NavDropdown>
-								) : (
-									<Link className="nav-link" to="/signin">
-										Sign In
+							</div>
+							<div>
+								<Nav className="me-auto">
+									<Link to="/cart" className="nav-link">
+										<strong>Cart</strong>
+										{cart.cartItems.length > 0 && (
+											<Badge pill bg="danger">
+												{cart.cartItems.reduce(
+													(a, c) => a + c.quantity,
+													0,
+												)}
+											</Badge>
+										)}
 									</Link>
-								)}
-							</Nav>
-						</div>
+									{userInfo ? (
+										<NavDropdown
+											title={userInfo.name}
+											id="basic-nav-dropdown">
+											<LinkContainer to="/profile">
+												<NavDropdown.Item>
+													User Profile
+												</NavDropdown.Item>
+											</LinkContainer>
+											<LinkContainer to="/orderhistory">
+												<NavDropdown.Item>
+													Order History
+												</NavDropdown.Item>
+											</LinkContainer>
+											<NavDropdown.Divider />
+											<Link
+												className="dropdown-item"
+												to="#signout"
+												onClick={signOutHandler}>
+												Sign Out
+											</Link>
+										</NavDropdown>
+									) : (
+										<Link className="nav-link" to="/signin">
+											Sign In
+										</Link>
+									)}
+								</Nav>
+							</div>
+						</Container>
 					</Navbar>
 				</header>
-				<main>
+				<main className="scr-pad">
 					<Routes>
 						<Route path="/product/:slug" element={<ProductScreen />} />
 						<Route path="/cart" element={<CartScreen />} />
 						<Route path="/signin" element={<SigninScreen />} />
+						<Route path="/signup" element={<SignupScreen />} />
+						<Route path="/shipping" element={<ShippingAddressScreen />} />
 						<Route path="/" element={<HomeScreen />} />
 					</Routes>
 				</main>
