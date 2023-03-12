@@ -310,3 +310,7 @@ hr {
 	border-bottom: 0.2rem solid #f08000;
 	color: #f08000;
 }
+
+.pad-top {
+	margin-top: 7px;
+}
