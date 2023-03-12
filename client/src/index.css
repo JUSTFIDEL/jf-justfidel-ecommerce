@@ -12,8 +12,8 @@ body {
 }
 
 a {
-	text-decoration: none;
-	color: rgb(9, 117, 32);
+	/* text-decoration: none; */
+	color: #02552b;
 	font-weight: bold;
 }
 
@@ -25,7 +25,14 @@ h1 {
 
 main {
 	background-color: rgba(255, 255, 255, 0.8);
-	padding: 6rem 3rem 2rem;
+	padding: 1rem 3rem 2rem;
+	margin-top: 5rem;
+	min-height: 100svh;
+}
+
+.scr-pad {
+	padding: 1rem 3rem 2rem;
+	margin-top: 5rem;
 	min-height: 100svh;
 }
 
@@ -84,7 +91,6 @@ header a {
 		font-size: 1.75rem;
 		text-align: center;
 		margin-bottom: 1rem;
-		margin-top: 1rem;
 	}
 
 	.logo {
@@ -96,7 +102,8 @@ header a {
 	}
 
 	.scr-pad {
-		padding: 5rem 1.5rem 2rem;
+		padding: 0rem 1rem 1rem;
+		margin-top: 4rem;
 		min-height: 100svh;
 	}
 }
@@ -156,17 +163,22 @@ header a {
 	position: relative;
 }
 
+input[type='radio']#PayPal {
+	accent-color: #02552b !important;
+}
+
 .signing-btn {
-	background-color: rgb(9, 117, 32) !important;
+	background-color: #02552b !important;
 	color: whitesmoke !important;
 	outline: none;
 	border: none;
+	width: 100%;
 }
 
 .pro-but {
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
-	background-color: rgb(9, 117, 32);
+	background-color: #02552b;
 	color: whitesmoke;
 	transition: all ease-in-out 400ms;
 	position: absolute;
@@ -180,7 +192,7 @@ header a {
 .pro-but-1 {
 	padding: 0.3rem 1.5rem;
 	border-radius: 4px;
-	background-color: rgb(9, 117, 32);
+	background-color: #02552b;
 	color: whitesmoke;
 	transition: all ease-in-out 400ms;
 	outline: none;
@@ -207,18 +219,18 @@ header a {
 .pro-but-1:hover {
 	background: rgb(140, 223, 45);
 	border: none;
-	color: rgb(4, 97, 24);
+	color: #02552b;
 }
 .rating {
 	margin-top: -10px;
 }
 
 .rating span {
-	color: rgb(9, 117, 32);
+	color: #02552b;
 }
 
 footer {
-	background: rgb(25, 189, 61);
+	background: #02552b;
 	padding: 0.5rem;
 	color: whitesmoke;
 	text-align: center;

@@ -50,7 +50,7 @@ function SignupScreen() {
 	}, [navigate, redirect, userInfo])
 
 	return (
-		<Container className="small-container">
+		<Container className="small-container scr-pad">
 			<Helmet>
 				<title>Sign Up</title>
 			</Helmet>
