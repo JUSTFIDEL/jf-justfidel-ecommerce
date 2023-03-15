@@ -1,6 +1,10 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useReducer } from 'react'
-import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
+import {
+	PayPalButtons,
+	PayPalScriptProvider,
+	usePayPalScriptReducer,
+} from '@paypal/react-paypal-js'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -26,7 +30,7 @@ const reducer = (state, action) => {
 		case 'PAY_SUCCESS':
 			return { ...state, loadingPay: false, successPay: true }
 		case 'PAY_FAIL':
-			return { ...state, loading: false }
+			return { ...state, loadingPay: false }
 		case 'PAY_RESET':
 			return { ...state, loadingPay: false, successPay: false }
 
@@ -249,13 +253,12 @@ export default function OrderScreen() {
 										{isPending ? (
 											<LoadingBox />
 										) : (
-											<div>
+											<PayPalScriptProvider>
 												<PayPalButtons
 													createOrder={createOrder}
 													onApprove={onApprove}
-													onError={onError}
-												/>
-											</div>
+													onError={onError}></PayPalButtons>
+											</PayPalScriptProvider>
 										)}
 										{loadingPay && <LoadingBox></LoadingBox>}
 									</ListGroup.Item>
