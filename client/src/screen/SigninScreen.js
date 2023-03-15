@@ -1,4 +1,4 @@
-import Axios from 'axios'
+import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -24,7 +24,7 @@ function SigninScreen() {
 	const submitHandler = async e => {
 		e.preventDefault()
 		try {
-			const { data } = await Axios.post('/api/users/signin', {
+			const { data } = await axios.post('/api/users/signin', {
 				email,
 				password,
 			})
