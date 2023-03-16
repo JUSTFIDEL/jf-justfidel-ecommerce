@@ -175,6 +175,13 @@ input[type='radio']#PayPal {
 	width: 100%;
 }
 
+.nav-btn {
+	background-color: #02552b !important;
+	color: whitesmoke !important;
+	outline: none;
+	border: none;
+}
+
 .pro-but {
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
@@ -313,4 +320,35 @@ hr {
 
 .pad-top {
 	margin-top: 7px;
+}
+
+/* Sidebar */
+
+.navbar-brand {
+	font-weight: bold;
+}
+
+.side-navbar {
+	width: 240px;
+	height: 100%;
+	position: absolute;
+	left: -300px;
+	background: rgba(140, 223, 45, 0.521);
+	transition: 0.5s;
+}
+
+.site-container {
+	transition: 0.4s;
+}
+
+.active-cont {
+	margin-left: 240px;
+}
+
+.active-nav {
+	left: 0;
+}
+
+.link-pad {
+	padding: 6.5rem 1.5rem;
 }

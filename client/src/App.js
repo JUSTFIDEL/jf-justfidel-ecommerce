@@ -1,5 +1,5 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Nav from 'react-bootstrap/Nav'
@@ -9,7 +9,7 @@ import Badge from 'react-bootstrap/Badge'
 import Footer from './screen/Components/Footer'
 import HomeScreen from './screen/HomeScreen'
 import ProductScreen from './screen/ProductScreen'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Store } from './Store'
 import CartScreen from './screen/CartScreen'
 import SigninScreen from './screen/SigninScreen'
@@ -22,6 +22,9 @@ import PlaceOrderScreen from './screen/PlaceOrderScreen'
 import OrderScreen from './screen/OrderScreen'
 import OrderHistoryScreen from './screen/OrderHistoryScreen'
 import ProfileScreen from './screen/ProfileScreen'
+import Button from 'react-bootstrap/Button'
+import axios from 'axios'
+import { getError } from './utils'
 
 function App() {
 	const { state, dispatch: ctxDispatch } = useContext(Store)
@@ -35,13 +38,39 @@ function App() {
 		window.location.href = '/signin'
 	}
 
+	const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
+	const [categories, setCategories] = useState([])
+
+	useEffect(() => {
+		const fetchCategories = async () => {
+			try {
+				const { data } = await axios.get(`/api/products/categories`)
+				setCategories(data)
+			} catch (err) {
+				toast.error(getError(err))
+			}
+		}
+		fetchCategories()
+	})
+
 	return (
 		<BrowserRouter>
-			<div className="d-flex flex-column site-container">
+			<div
+				className={
+					sidebarIsOpen
+						? 'd-flex flex-column site-container active-cont'
+						: 'd-flex flex-column site-container'
+				}>
 				<ToastContainer position="bottom-center" limit={1} />
 				<header>
 					<Navbar variant="dark my-nav" expand="lg">
 						<Container>
+							<Button
+								className="nav-btn"
+								variant="dark"
+								onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+								<i className="fas fa-bars"></i>
+							</Button>
 							<div>
 								<Link to="/">
 									<img
@@ -99,6 +128,29 @@ function App() {
 						</Container>
 					</Navbar>
 				</header>
+
+				<div
+					className={
+						sidebarIsOpen
+							? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column  link-pad'
+							: 'side-navbar d-flex justify-content-between flex-wrap flex-column'
+					}>
+					<Nav className="flex-column text-white w-100 p-2">
+						<Nav.Item>
+							<strong>Categories</strong>
+						</Nav.Item>
+						{categories.map(category => (
+							<Nav.Item key={category}>
+								<Link
+									to={`/search?category=${category}`}
+									onClick={() => setSidebarIsOpen(false)}>
+									<Nav.Link>{category}</Nav.Link>
+								</Link>
+							</Nav.Item>
+						))}
+					</Nav>
+				</div>
+
 				<main className="scr-pad">
 					<Routes>
 						<Route path="/product/:slug" element={<ProductScreen />} />
