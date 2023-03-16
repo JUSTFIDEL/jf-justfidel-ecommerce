@@ -55,6 +55,10 @@ header a {
 	text-decoration: none;
 }
 
+.top-nav {
+	justify-content: normal !important;
+}
+
 .my-nav {
 	display: flex;
 	/* justify-content: space-between; */
@@ -96,6 +100,10 @@ header a {
 	.logo {
 		width: 5rem;
 	}
+
+	/* .nav-top-left {
+		margin-right: 50px !important;
+	} */
 
 	header {
 		padding: 0.5rem 1rem;
@@ -175,11 +183,23 @@ input[type='radio']#PayPal {
 	width: 100%;
 }
 
+.search-btn {
+	background-color: #02552b !important;
+	color: whitesmoke !important;
+	border: none;
+	outline: none;
+}
+
 .nav-btn {
 	background-color: #02552b !important;
 	color: whitesmoke !important;
 	outline: none;
 	border: none;
+	margin-right: 2rem;
+}
+
+.nav-top-right {
+	flex: 1 !important;
 }
 
 .pro-but {
@@ -333,8 +353,8 @@ hr {
 	height: 100%;
 	position: absolute;
 	left: -300px;
-	background: rgba(140, 223, 45, 0.521);
-	transition: 0.5s;
+	background: rgba(138, 223, 41, 0.521);
+	transition: 0.45s;
 }
 
 .site-container {
@@ -351,4 +371,23 @@ hr {
 
 .link-pad {
 	padding: 6.5rem 1.5rem;
+	outline: none;
+	border: none;
+}
+
+.pl-10 {
+	padding-left: 10px;
+	text-decoration: none;
+}
+
+.pt-10 {
+	padding-top: 10px;
+}
+
+.side-nav {
+	text-decoration: none;
+}
+
+.side-nav:hover {
+	color: #03753c;
 }

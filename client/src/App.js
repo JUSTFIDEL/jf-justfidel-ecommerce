@@ -25,6 +25,8 @@ import ProfileScreen from './screen/ProfileScreen'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import { getError } from './utils'
+import SearchBox from './screen/Components/SearchBox'
+import SearchScreen from './screen/SearchScreen'
 
 function App() {
 	const { state, dispatch: ctxDispatch } = useContext(Store)
@@ -64,7 +66,7 @@ function App() {
 				<ToastContainer position="bottom-center" limit={1} />
 				<header>
 					<Navbar variant="dark my-nav" expand="lg">
-						<Container>
+						<Container className="top-nav">
 							<Button
 								className="nav-btn"
 								variant="dark"
@@ -80,9 +82,10 @@ function App() {
 									/>
 								</Link>
 							</div>
-							<div>
+							<div className="nav-top-right">
 								<Navbar.Toggle arial-controls="basic-navbar-nav" />
 								<Navbar.Collapse id="basic-navbar-nav">
+									<SearchBox />
 									<Nav className="me-auto w-100 justify-content-end">
 										<Link to="/cart" className="nav-link">
 											<strong>Cart</strong>
@@ -142,9 +145,10 @@ function App() {
 						{categories.map(category => (
 							<Nav.Item key={category}>
 								<Link
+									className="side-nav"
 									to={`/search?category=${category}`}
 									onClick={() => setSidebarIsOpen(false)}>
-									<Nav.Link>{category}</Nav.Link>
+									<p className="pl-10 pt-10">{category}</p>
 								</Link>
 							</Nav.Item>
 						))}
@@ -155,6 +159,7 @@ function App() {
 					<Routes>
 						<Route path="/product/:slug" element={<ProductScreen />} />
 						<Route path="/cart" element={<CartScreen />} />
+						<Route path="/search" element={<SearchScreen />} />
 						<Route path="/signin" element={<SigninScreen />} />
 						<Route path="/signup" element={<SignupScreen />} />
 						<Route path="/profile" element={<ProfileScreen />} />
