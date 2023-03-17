@@ -55,7 +55,7 @@ productRouter.get(
 				  }
 				: {}
 
-		const orderFilter =
+		const sortOrder =
 			order === 'featured'
 				? { featured: -1 }
 				: order === 'lowest'

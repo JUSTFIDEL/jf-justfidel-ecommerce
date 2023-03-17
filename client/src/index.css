@@ -79,6 +79,10 @@ header a {
 }
 
 @media (max-width: 768px) {
+	.product img {
+		width: 100%;
+	}
+
 	.prod-flex img {
 		width: 100%;
 	}
@@ -156,7 +160,7 @@ header a {
 
 .product img {
 	background: white;
-	width: 235px;
+	min-width: 235px;
 	height: 255px;
 	object-fit: cover;
 	border-radius: 20px 20px 0 0;
@@ -390,4 +394,8 @@ hr {
 
 .side-nav:hover {
 	color: #03753c;
+}
+
+.text-bold {
+	font-weight: bold;
 }

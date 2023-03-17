@@ -11,6 +11,7 @@ import MessageBox from './Components/MessageBox'
 import Rating from './Components/Rating'
 import Product from './Components/Product'
 import { Helmet } from 'react-helmet-async'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -84,7 +85,7 @@ export default function SearchScreen() {
 	const price = sp.get('price') || 'all'
 	const rating = sp.get('rating') || 'all'
 	const order = sp.get('order') || 'newest'
-	const page = sp.get('page') || '1'
+	const page = sp.get('page') || 1
 
 	const [{ loading, error, products, pages, countProducts }, dispatch] =
 		useReducer(reducer, {
@@ -96,7 +97,7 @@ export default function SearchScreen() {
 		const fetchData = async () => {
 			try {
 				const { data } = await axios.get(
-					`/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}=${rating}&order=${order}`,
+					`/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`,
 				)
 				dispatch({ type: 'FETCH_SUCCESS', payload: data })
 			} catch (err) {
@@ -110,7 +111,6 @@ export default function SearchScreen() {
 	}, [category, error, order, page, price, query, rating])
 
 	const [categories, setCategories] = useState([])
-
 	useEffect(() => {
 		const fetchCategories = async () => {
 			try {
@@ -119,8 +119,8 @@ export default function SearchScreen() {
 			} catch (err) {
 				toast.error(getError(err))
 			}
-			fetchCategories()
 		}
+		fetchCategories()
 	}, [dispatch])
 
 	const getFilterUrl = filter => {
@@ -130,7 +130,7 @@ export default function SearchScreen() {
 		const filterRating = filter.rating || rating
 		const filterPrice = filter.price || price
 		const sortOrder = filter.order || order
-		return `/search?catagory=${filterCategory}&query=${filterPage}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}`
+		return `/search?catagory=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=$(filterPage)`
 	}
 
 	return (
@@ -196,9 +196,8 @@ export default function SearchScreen() {
 												? 'text-bold'
 												: ''
 										}>
-										{r.name}
+										<Rating caption={' & up'} rating={r.rating} />
 									</Link>
-									<Rating caption={' & up'} rating={r.rating}></Rating>
 								</li>
 							))}
 							<li>
@@ -214,7 +213,7 @@ export default function SearchScreen() {
 
 				<Col md={9}>
 					{loading ? (
-						<LoadingBox></LoadingBox>
+						<LoadingBox />
 					) : error ? (
 						<MessageBox variant="danger">{error}</MessageBox>
 					) : (
@@ -224,10 +223,10 @@ export default function SearchScreen() {
 									<div>
 										{countProducts === 0 ? 'No' : countProducts}{' '}
 										Results
-										{(query !== 'all') & (' : ' + query)}
-										{(category !== 'all') & (' : ' + category)}
-										{(price !== 'all') & (' : Price ' + price)}
-										{(rating !== 'all') & (' : ' + rating)}
+										{query !== 'all' && ' : ' + query}
+										{category !== 'all' && ' : ' + category}
+										{price !== 'all' && ' : Price ' + price}
+										{rating !== 'all' && ' : Rating ' + ' & up'}
 										{query !== 'all' ||
 										category !== 'all' ||
 										rating !== 'all' ||
@@ -246,7 +245,7 @@ export default function SearchScreen() {
 										value={order}
 										onChange={e => {
 											navigate(
-												getFilterUrl({ oreder: e.target.value }),
+												getFilterUrl({ order: e.target.value }),
 											)
 										}}>
 										<option value="newest">Newest Arrival</option>
@@ -260,7 +259,6 @@ export default function SearchScreen() {
 									</select>
 								</Col>
 							</Row>
-
 							{products.length === 0 && (
 								<MessageBox>No Product Found</MessageBox>
 							)}
@@ -272,7 +270,7 @@ export default function SearchScreen() {
 										lg={4}
 										className="mb-3"
 										key={product._id}>
-										<Product product={product}></Product>
+										<Product product={product} />
 									</Col>
 								))}
 							</Row>
@@ -282,7 +280,7 @@ export default function SearchScreen() {
 									<Link
 										key={x + 1}
 										className="mx-1"
-										to={getFilterUrl({ pages: x + 1 })}>
+										to={getFilterUrl({ page: x + 1 })}>
 										<Button
 											className={
 												Number(page) === x + 1 ? 'text-bold' : ''

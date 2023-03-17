@@ -53,7 +53,7 @@ function App() {
 			}
 		}
 		fetchCategories()
-	})
+	}, [])
 
 	return (
 		<BrowserRouter>

@@ -12,6 +12,7 @@ export default function SearchBox() {
 		e.preventDefault()
 		navigate(query ? `/search/?query=${query}` : '/search')
 	}
+
 	return (
 		<Form className="d-flex me-auto" onSubmit={submitHandler}>
 			<InputGroup>
@@ -21,8 +22,8 @@ export default function SearchBox() {
 					id="q"
 					onChange={e => setQuery(e.target.value)}
 					placeholder="search products..."
-					arial-label="Search Products"
-					arial-describedby="button-search"></FormControl>
+					aria-label="Search Products"
+					aria-describedby="button-search"></FormControl>
 				<Button
 					variant="outline-primary search-btn"
 					type="submit"
