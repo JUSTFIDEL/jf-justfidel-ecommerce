@@ -11,7 +11,7 @@ import MessageBox from './Components/MessageBox'
 import Rating from './Components/Rating'
 import Product from './Components/Product'
 import { Helmet } from 'react-helmet-async'
-import { LinkContainer } from 'react-router-bootstrap'
+// import { LinkContainer } from 'react-router-bootstrap'
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -130,7 +130,7 @@ export default function SearchScreen() {
 		const filterRating = filter.rating || rating
 		const filterPrice = filter.price || price
 		const sortOrder = filter.order || order
-		return `/search?catagory=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=$(filterPage)`
+		return `/search?catagory=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`
 	}
 
 	return (
@@ -175,7 +175,7 @@ export default function SearchScreen() {
 							{prices.map(p => (
 								<li key={p.value}>
 									<Link
-										to={getFilterUrl({ price: 'p.value' })}
+										to={getFilterUrl({ price: p.value })}
 										className={p.value === price ? 'text-bold' : ''}>
 										{p.name}
 									</Link>
@@ -186,11 +186,11 @@ export default function SearchScreen() {
 
 					<div>
 						<h3>Avg. Customer Review</h3>
-						<ul>
+						<ul className="spacing">
 							{ratings.map(r => (
-								<li key={r.name}>
+								<li key={r.name} className="ratings">
 									<Link
-										to={getFilterUrl({ rating: 'r.rating' })}
+										to={getFilterUrl({ rating: r.rating })}
 										className={
 											`${r.rating}` === `${rating}`
 												? 'text-bold'
@@ -200,7 +200,7 @@ export default function SearchScreen() {
 									</Link>
 								</li>
 							))}
-							<li>
+							<li className="ratings">
 								<Link
 									to={getFilterUrl({ rating: 'all' })}
 									className={rating === 'all' ? 'text-bold' : ''}>
@@ -226,7 +226,8 @@ export default function SearchScreen() {
 										{query !== 'all' && ' : ' + query}
 										{category !== 'all' && ' : ' + category}
 										{price !== 'all' && ' : Price ' + price}
-										{rating !== 'all' && ' : Rating ' + ' & up'}
+										{rating !== 'all' &&
+											' : Rating ' + rating + ' & up'}
 										{query !== 'all' ||
 										category !== 'all' ||
 										rating !== 'all' ||

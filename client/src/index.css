@@ -132,6 +132,8 @@ header a {
 	/* border: 3px solid rgb(221, 217, 217); */
 	display: flex;
 	flex-direction: column;
+	min-width: 260px;
+	max-width: 260px;
 	border-radius: 20px;
 	background: rgba(228, 226, 226, 0.705);
 	margin: 1.25rem auto;
@@ -160,7 +162,7 @@ header a {
 
 .product img {
 	background: white;
-	min-width: 235px;
+	width: 100%;
 	height: 255px;
 	object-fit: cover;
 	border-radius: 20px 20px 0 0;
@@ -173,10 +175,6 @@ header a {
 
 .product-info {
 	position: relative;
-}
-
-input[type='radio']#PayPal {
-	accent-color: #02552b !important;
 }
 
 .signing-btn {
@@ -357,7 +355,7 @@ hr {
 	height: 100%;
 	position: absolute;
 	left: -300px;
-	background: rgba(138, 223, 41, 0.521);
+	background: #02552bde;
 	transition: 0.45s;
 }
 
@@ -381,7 +379,12 @@ hr {
 
 .pl-10 {
 	padding-left: 10px;
-	text-decoration: none;
+	color: whitesmoke;
+}
+
+.pl-10:hover {
+	color: white;
+	text-decoration: underline;
 }
 
 .pt-10 {
@@ -393,9 +396,20 @@ hr {
 }
 
 .side-nav:hover {
-	color: #03753c;
+	color: #02552b;
 }
 
 .text-bold {
 	font-weight: bold;
+}
+
+.spacing {
+	line-height: 2;
+}
+
+.ratings:hover {
+	scale: 0.98;
+}
+.ratings {
+	transition: 300ms;
 }
