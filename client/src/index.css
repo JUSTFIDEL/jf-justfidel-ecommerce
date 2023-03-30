@@ -79,6 +79,10 @@ header a {
 }
 
 @media (max-width: 768px) {
+	main {
+		min-height: 100svh;
+	}
+
 	.product img {
 		width: 100%;
 	}
