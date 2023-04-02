@@ -1,0 +1,24 @@
+{
+	"name": "justfidel-ecommerce",
+	"version": "1.0.0",
+	"description": "JustFidel eCommerce website",
+	"main": "index.js",
+	"scripts": {
+		"build": "cd server && npm install && cd ../client && npm install && npm run build --force",
+		"start": "node server/server.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JUSTFIDEL/jf-justfidel-ecommerce.git"
+	},
+	"keywords": [
+		"ecommerce"
+	],
+	"author": "Fidelis Adang",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/JUSTFIDEL/jf-justfidel-ecommerce/issues"
+	},
+	"homepage": "https://github.com/JUSTFIDEL/jf-justfidel-ecommerce#readme"
+}
